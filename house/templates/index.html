@@ -1,7 +1,22 @@
-{%extends 'all-news/base.html'%}
+{%extends 'base.html'%}
+
+{% load bootstrap4 %}
+
+
 
 {% block content %}
 {{block.super}}
-<h1>Welcome</h1>
+<div class="container">
+
+<h1  class='text-center'>Welcome</h1>
+<div class="row">
+{% for receipt in receipts %}
+
+<img src="{{receipt.receipt_image.url}}" class="img-responsive" alt="Image">
+
+{% endfor %}
+
+</div>
+</div>
 
 {% endblock %}
