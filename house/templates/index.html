@@ -8,12 +8,17 @@
 {{block.super}}
 <div class="container">
 
-<h1  class='text-center'>Welcome</h1>
+<h1  class='text-center'>Filter Receipts</h1>
 <div class="row">
 {% for receipt in receipts %}
-
+<div class="col-md-4">
 <img src="{{receipt.receipt_image.url}}" class="img-responsive" alt="Image">
+<p><strong>Tenant</strong>{{receipt.profile}}</p>
+<p><strong>Room number</strong>{{receipt.room_number}}</p>
+<p><strong>Time</strong>{{receipt.upload_time}}</p>
 
+
+</div>
 {% endfor %}
 
 </div>

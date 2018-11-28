@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{% load bootstrap4 %}
+
+
+
+{% block content %}
+<div class="container">
+
+
+<h3>Announcements</h3>
+<div class="row">
+{% for post in posts %}
+
+<div class="col-md-6">
+
+
+<p><b>{{post.title}}</b></p>
+<p>{{post.post}}</p>
+
+
+</div>
+
+
+{% empty %}
+<h2 class="text-center">No posts</h2>
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}

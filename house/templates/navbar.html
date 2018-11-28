@@ -9,10 +9,10 @@
   <nav class="navbar navbar-expand-sm bg-light navbar-black">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
       <a class="navbar-brand" href="/admin">Admin</a>
 
-      <a class="navbar-brand right" href="#">Profile</a>
+      <a class="navbar-brand right" href="{% url 'profile' %}">{{request.user.username}}</a>
 
 
     </div>
@@ -24,9 +24,6 @@
                           <span class="caret"></span>
                       </a>
                 <ul class="dropdown-menu" role="menu">
-                  <li>
-                    <a href="{%url 'index'%}">Home</a>
-                  </li>
                   <li>
                     <a href="/accounts/password/change">Change Password</a>
                   </li>
