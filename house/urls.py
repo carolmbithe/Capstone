@@ -9,10 +9,12 @@ urlpatterns=[
     url(r'^index/',views.index,name='index'),
     url(r'^profile/',views.profile,name='profile'),
     url(r'^create/profile$',views.create_profile,name='create-profile'),
+    url(r'^edit/profile$',views.edit_profile,name='edit-profile'),
+    url(r'^new/post$',views.new_post,name='post'),
     url(r'^new/receipt$',views.new_receipt,name='receipt'),
     url(r'^vacant/',views.vacant,name='vacant'),
     url(r'^home/',views.home,name='home'),
-    url(r'^filter/(\d+)',views.filter,name='filter'),
+    url(r'^house/(\d+)',views.house,name='house'),
 
 
 

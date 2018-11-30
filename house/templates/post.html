@@ -7,21 +7,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Add receipt</title>
+  <title>issue</title>
   {{form.media}}
 
 {% block styles %} {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/receipt.css' %}"> {% endblock %}
+  <link rel="stylesheet" href="{% static 'css/post.css' %}"> {% endblock %}
 
 </head>
 
 <body>
 
-  <form  action="{%url 'receipt' %}" method="post" enctype="multipart/form-data">
+  <form  action="{%url 'post' %}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Update">
+    <input type="submit" class="btn btn-success btn-lg" value="Send">
   </form>
 
    {% block scripts %}

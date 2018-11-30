@@ -3,12 +3,58 @@
 {% load bootstrap4 %}
 
 
-
 {% block content %}
 {{block.super}}
+<body style="background-color:#F1F3F3">
 <div class="container">
 
-<h1  class='text-center'>Filter Receipts</h1>
+<ul>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Room number<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'house' 1 %}">C01</a></li>
+
+          <li><a href="{% url 'house' 2 %}">C02</a></li>
+          <li><a href="{% url 'house' 3 %}">C03</a></li>
+
+
+        </ul>
+      </li>
+
+
+<h2 class="text-center">Requests made</h2>
+<div class="row">
+{% for request in requests %}
+<table class="table">
+<thead class="thead">
+<tr>
+  <th>Name</th>
+  <th>Telephone</th>
+  <th>Email</th>
+  <th>House requested</th>
+  <th>Time of request</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>{{request.name}}</td>
+  <td>{{request.phone_number}}</td>
+  <td>{{request.email}}</td>
+  <td>{{request.house}}</td>
+  <td>{{request.upload_time}}</td>
+
+</tr>
+</tbody>
+</table>
+
+
+{% endfor %}
+
+
+</div>
+<h2 class="text-center">Receipts received</h2>
+
 <div class="row">
 {% for receipt in receipts %}
 <div class="col-md-4">
@@ -23,5 +69,5 @@
 
 </div>
 </div>
-
+</body>
 {% endblock %}

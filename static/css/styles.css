@@ -2,6 +2,14 @@ h1{
   color:black;
   text-align:;
 }
-.navbar{
+/* .navbar{
   background-color: blue;
-}
+} */
+h3{
+    color:#2ABCDA;
+    font-family: verdana;
+    font-size: 300%;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+
+  }

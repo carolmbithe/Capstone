@@ -1,31 +1,58 @@
 {%extends 'base.html'%}
 
-{% load bootstrap4 %}
+{% load bootstrap3 %}
 
 
 
 {% block content %}
+<body style="background-color:#C3CBD3">
 <div class="container">
 
 
-<h3>Announcements</h3>
+<h3 class="text-center">ISSUES BOARD</h3>
+<a  data-toggle="modal" data-target="#settings" aria-hidden="true"style="color:black;" ><button type="button" class="btn btn-info" name="button"> Post an issue</button></a>
+<br>
+<br>
 <div class="row">
 {% for post in posts %}
 
 <div class="col-md-6">
 
-
-<p><b>{{post.title}}</b></p>
+<div class="panel panel-default">
+  <div class="panel-header">
+<p>  <b> <br> {{post.title}}</b></p>
+</div>
+<div class="panel-body">
 <p>{{post.post}}</p>
-
-
+</div>
+<div class="panel-footer">
+<p>Sent by {{post.name}}</p>
+<p>Time {{post.upload_time}}</p>
+</div>
+</div>
 </div>
 
 
 {% empty %}
 <h2 class="text-center">No posts</h2>
 {% endfor %}
-</div>
-</div>
 
+
+</div>
+<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+          <form  action="{%url 'post' %}" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-success btn-lg" value="Post">
+          </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
 {% endblock %}

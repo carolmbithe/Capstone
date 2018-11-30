@@ -1,3 +1,4 @@
+{%extends 'base.html'%}
 
 {% load bootstrap4 %}
 {% load staticfiles %}
@@ -19,27 +20,35 @@
 
     {% block content %}
     <div class="container">
-    <body style="background-color:#D3D6D9">
-
-    <nav class="navbar">
-
-      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
-      <a class="navbar-brand" href="{% url 'vacant' %}">Vacant Rooms</a>
-
-      <a class="navbar-brand" href="{% url 'index' %}">Receipts</a>
-
-
-    </nav>
-    <h1>Welcome to Dunamis</h1>
-
-    {%endblock%}
+    <body class="view hm-black-strong">
+      <style>
+        body{background: url(../static/pexels-photo-1438832.jpeg)}
+      </style>
+          <!-- <ul class="nav md-tabs light-blue lighten-1 mx-0 mb-0 mt-1 fixed-top">
+            <li class="nav-item">
+              <a class="nav-link active" href="">Dunamis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Receipts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'vacant' %}">Vacant Houses</a>
+            </li>
+          </ul> -->
+      </div>
+{%endblock%}
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
 
   </body>
+
 </div>
+
   {% endblock %}
 
 </html>

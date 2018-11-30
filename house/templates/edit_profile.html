@@ -1,4 +1,4 @@
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -7,17 +7,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Add receipt</title>
+  <title>create profile</title>
   {{form.media}}
 
 {% block styles %} {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/receipt.css' %}"> {% endblock %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}"> {% endblock %}
 
 </head>
 
 <body>
 
-  <form  action="{%url 'receipt' %}" method="post" enctype="multipart/form-data">
+  <form  action="{%url 'edit-profile'%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}

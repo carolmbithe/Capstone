@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 
-{% load bootstrap4 %}
+{% load bootstrap3 %}
 
 
 
@@ -12,7 +12,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<<body style="background-color:#F1F3F3">
+>
 
 {% block content %}
 {{block.super}}
@@ -33,16 +34,17 @@
 
 </div>
 <div class="col-md-6">
-  <p><strong>Username</strong>{{request.user.username}}</p>
+  <p><strong>{{request.user.username}}</strong></p>
   <p><strong>PhoneNumber</strong>{{profile.phone_number}}</p>
   <p><strong>Email</strong>{{profile.email}}</p>
 
 
 
-<a  data-toggle="modal" data-target="#settings" aria-hidden="true"style="color:black;" ><button type="button" class="btn btn-info" name="button"> Update profile</button></a>
+<a href="{%url 'create-profile' %}"><button type="button" class="btn btn-info" name="button">Update profile</button></a>
+<a href="{%url 'edit-profile' %}"><button type="button" class="btn btn-info" name="button">Edit profile</button></a></p>
+</p>
 <a  data-toggle="modal" data-target="#settings" aria-hidden="true"style="color:black;" ><button type="button" class="btn btn-info" name="button"> Add a receipt</button></a>
 
-<!-- <p><a href="{%url 'receipt' %}">Upload a receipt</a></p> -->
 
 </div>
 </div>
@@ -55,7 +57,7 @@
       <div class="col-md-4">
 
         <img src="{{receipt.receipt_image.url}}" class="img-responsive" alt="Image">
-
+      <p>{{receipt.upload_time}}</p>
         </div>
 
 
@@ -64,19 +66,7 @@
 
       {% endfor %}
   </div>
-  <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-          <div class="modal-body">
-            <form  action="{%url 'profile' %}" method="post" enctype="multipart/form-data">
-              {%csrf_token%}
-
-              {% bootstrap_form form %}
-              <input type="submit" class="btn btn-success btn-lg" value="Post">
-            </form>
-          </div>
-      </div>
-  </div>
+  <v>
 </div>
 <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
